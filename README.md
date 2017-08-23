@@ -74,3 +74,7 @@ See also the list of [contributors](https://github.com/li-plaintext/fusion/contr
 
 * create-react-app
 * etc
+
+## Declarations
+
+This is just for practicing purposes, no any others.
