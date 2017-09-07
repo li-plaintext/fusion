@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../shared';
 
 @Component({
   selector: 'home-page',
@@ -8,11 +9,24 @@ import { Router } from '@angular/router';
 })
 
 export class HomeComponent implements OnInit {
-  getKeyWord: string = 'angular';
+  constructor(
+    private userService: UserService
+  ) {}
 
-  ngOnInit() {}
+  getKeyWord: string = 'genome.one';
+
+  ngOnInit() {
+    this.userService.setAuth();
+  }
 
   getComponentName() {
-    return 'home';
+    let auth = this.userService.getAuth();
+    return `${auth.firstName} ${auth.lastName}`;
   }
+
+  getSum() {
+    return '';
+  }
+
+
 }
