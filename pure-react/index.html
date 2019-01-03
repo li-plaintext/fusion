@@ -2,11 +2,15 @@
   <head>  
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script crossorigin src="https://unpkg.com/create-react-class@15.6.2/create-react-class.min.js"></script>
-    
   </head>
 
   <body></body>
+
+  <style>
+    .word {
+      color: red;
+    }
+  </style>
 
   <script>
     const domElem = document.createElement('div');   
@@ -20,15 +24,18 @@
         }
       }
 
+      componentDidMount(){}
+
       componentDidUpdate(){
         console.log('ChildComponent');
       }
 
       render(){
-        return React.createElement('div', {id: 'root', cus: 'add', style: {color: 'red'}}, 
-          'nearmap' + this.state.val, 
+        return React.createElement('div', {id: 'root', cus: 'add', className: 'word'}, 
+          'nearmap -> ' + this.state.val, 
+          React.createElement('br'),
           React.createElement('button', {onClick: ()=> { this.setState({val: this.state.val + 1})}  }, 'add')
-          );
+        );
       }
     }
     
@@ -41,9 +48,8 @@
       }
     }
 
-
     const dom = ReactDOM.render(
-      React.createElement(ParentComponent, {val: 1}), 
+      React.createElement(ParentComponent), 
       domElem
     );
 
