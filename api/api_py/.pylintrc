@@ -1,0 +1,4 @@
+[Master]
+init-hook='sys.path = list(); sys.path.append("/Users/li.xu/miniconda3/bin/python3"); sys.path.append("/Users/li.xu/Desktop/nearmap/test/fusion/api/api_py")'
+
+indent-string='  '
