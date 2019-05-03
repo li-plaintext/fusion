@@ -1,1 +1,2 @@
-FLASK_APP=index.py FLASK_DEBUG=1 python -m flask run
+TEST
+  python -m pytest tests/

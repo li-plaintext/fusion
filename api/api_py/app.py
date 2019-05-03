@@ -9,4 +9,4 @@ api = Api(server)
 
 api.add_resource(Users, "/")
 
-import cors
+import hooks.cors
