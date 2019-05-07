@@ -1,5 +1,4 @@
-from flask import Flask, request, jsonify, Response
-from app import server
+from core.app import server
 
 @server.after_request
 def cors(response):

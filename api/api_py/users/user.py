@@ -4,8 +4,7 @@ from utils.utils import sum_users
 class Users(Resource):
   def get(self): 
     return {
-      'method': 'GET',
-      'size': sum_users([1,2,3])
+      'method': 'GET'
     }
 
   def post(self):

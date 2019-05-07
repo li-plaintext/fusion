@@ -1,2 +1,6 @@
 TEST
   python -m pytest tests/
+
+
+Set up "PYTHONPATH"
+export PYTHONPATH=$PYTHONPATH:/usr/local/bin/python3
