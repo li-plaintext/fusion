@@ -1,5 +1,6 @@
 from flask_restful import Resource
 from utils.utils import sum_users
+from flask import abort
 
 class Users(Resource):
   def get(self): 
