@@ -1,5 +1,6 @@
-from core.app import server
+from core.app import server, api
 from flask import jsonify
+import werkzeug
 
 @server.after_request
 def cors(response):
@@ -8,20 +9,22 @@ def cors(response):
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
   return response
 
-@server.errorhandler(400)
-def page_not_found(response):
-    return jsonify({ 'code': 400})
+@server.errorhandler(werkzeug.exceptions.NotFound)
+def page_not_found(e):
+  print('400 exception');
+  return jsonify({ 'code': 400})
 
-@server.errorhandler(404)
-def page_not_found(response):
-    return jsonify({ 'code': 404})
+@server.errorhandler(werkzeug.exceptions.MethodNotAllowed)
+def page_not_found(e):
+  print('405 exception');
+  return jsonify({ 'code': '405'})
 
-@server.errorhandler(403)
-def page_not_found(response):
-    return jsonify({ 'code': '403'})
+@api.handler_error(werkzeug.exceptions.MethodNotAllowed)
+def page_not_found(e):
+  print('405 exception');
+  return jsonify({ 'code': '405'})
 
-
-@server.errorhandler(500)
-def internal_error(error):
-    console
-    return "500 error"
+@server.errorhandler(Exception)
+def page_not_found(e):
+  print('500 exception');
+  return jsonify({ 'code': '500'})
