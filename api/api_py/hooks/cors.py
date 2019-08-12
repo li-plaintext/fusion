@@ -18,12 +18,7 @@ def page_not_found(e):
 def page_not_found(e):
   print('405 exception');
   return jsonify({ 'code': '405'})
-
-@api.handler_error(werkzeug.exceptions.MethodNotAllowed)
-def page_not_found(e):
-  print('405 exception');
-  return jsonify({ 'code': '405'})
-
+  
 @server.errorhandler(Exception)
 def page_not_found(e):
   print('500 exception');
