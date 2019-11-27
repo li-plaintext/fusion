@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'ng-map'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ng-map');
+    expect(app.title).toEqual('nearmap');
   });
 
   it('should render title in a h1 tag', () => {
